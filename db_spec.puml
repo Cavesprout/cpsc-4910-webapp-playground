@@ -1,0 +1,20 @@
+@startuml
+entity "Customer" as customer {
+  *customer_id : INT <<PK>>
+  --
+  name : VARCHAR
+  email : VARCHAR
+}
+
+entity "Order" as order {
+  *order_id : INT <<PK>>
+  --
+  order_date : DATE
+  total_amount : DECIMAL
+  -- 
+  customer_id : INT <<FK>>
+}
+
+customer ||--o{ order : "places"
+
+@enduml
